@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Patterns/Pattern1/Daydream3604096x4096.png</file>
+        <file>Patterns/Pattern1/FeatureGraphic1024x500.png</file>
+        <file>Patterns/Pattern1/HiresIcon512x512.png</file>
+        <file>Patterns/Pattern1/PromoGraphic180x120.png</file>
+        <file>Patterns/Pattern1/ScreenShot1600x900.png</file>
+        <file>Patterns/Pattern1/TVBanner1280x720.png</file>
+    </qresource>
+</RCC>
