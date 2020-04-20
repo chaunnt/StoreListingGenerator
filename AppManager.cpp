@@ -3,12 +3,12 @@
 #include <QDebug>
 
 static const QString FILE_EXT = ".png";
-static const QString NAME_SCREEN_SHOT = "ScreenShot";
-static const QString NAME_HIRES_ICON = "HiresIcon";
-static const QString NAME_DAY_DREAM_360 = "Daydream360";
-static const QString NAME_FEATURE_GRAPHIC = "FeatureGraphic";
-static const QString NAME_TV_BANNER = "PromoGraphic";
-static const QString NAME_PROMO_GRAPHIC = "TVBanner";
+static const QString NAME_SCREEN_SHOT = "ScreenShot1600x900";
+static const QString NAME_HIRES_ICON = "HiresIcon512x512";
+static const QString NAME_DAY_DREAM_360 = "Daydream3604096x4096";
+static const QString NAME_FEATURE_GRAPHIC = "FeatureGraphic1024x500";
+static const QString NAME_TV_BANNER = "PromoGraphic180x120";
+static const QString NAME_PROMO_GRAPHIC = "TVBanner1280x720";
 
 AppManager::AppManager(QObject *parent) : QObject(parent)
 {
@@ -24,6 +24,11 @@ void AppManager::generateAndroidStoreImages()
     gen_FeatureGraphic(SIZE_FEATURE_GRAPHIC, patName);
     gen_PromoGraphic(SIZE_PROMO_GRAPHIC, patName);
     gen_TVBanner(SIZE_TV_BANNER, patName);
+
+}
+
+void AppManager::_generateIOSstoreImages()
+{
 
 }
 

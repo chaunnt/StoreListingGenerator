@@ -21,6 +21,8 @@ public:
     explicit AppManager(QObject *parent = nullptr);
     Q_INVOKABLE void generateAndroidStoreImages();
 private:
+    void _generateIOSstoreImages();
+    void _gen_iOS_iPhone_shots(QString str);
     void gen_ScreenShot(QSize imgSize, QString patternName = "");
     void gen_HiresIcon(QSize imgSize, QString patternName = "");
     void gen_Daydream360(QSize imgSize, QString patternName = "");
