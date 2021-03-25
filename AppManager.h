@@ -16,7 +16,7 @@ class AppManager : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString appName MEMBER m_appName NOTIFY appNameChanged)
-    QString m_appName = "";
+    QString m_appName = "Generator";
 public:
     explicit AppManager(QObject *parent = nullptr);
     Q_INVOKABLE void generateAndroidStoreImages();

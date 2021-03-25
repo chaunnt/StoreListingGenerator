@@ -7,5 +7,9 @@
         <file>Patterns/Pattern1/PromoGraphic180x120.png</file>
         <file>Patterns/Pattern1/ScreenShot1600x900.png</file>
         <file>Patterns/Pattern1/TVBanner1280x720.png</file>
+        <file>ImageHolder.qml</file>
+        <file>Patterns/IPhone_X.png</file>
+        <file>Patterns/Logo512x512.png</file>
+        <file>PromotionImage.qml</file>
     </qresource>
 </RCC>
