@@ -17,6 +17,14 @@ class AppManager : public QObject
     Q_OBJECT
     Q_PROPERTY(QString appName MEMBER m_appName NOTIFY appNameChanged)
     QString m_appName = "Generator";
+
+    Q_PROPERTY(bool noBackground READ getNoBackground WRITE setNoBackground NOTIFY noBackgroundChanged)
+    bool m_NoBackground = false;
+
+    Q_PROPERTY(QString backgroundColor READ getBackgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged)
+    QString m_BackgroundColor = "#99142A";
+
+
 public:
     explicit AppManager(QObject *parent = nullptr);
     Q_INVOKABLE void generateAndroidStoreImages();
@@ -33,6 +41,15 @@ private:
     QImage createEmptyImage(QSize imgSize, QColor imgColor, QColor textColor);
     QImage createImageWithPattern(QString PatternName, QString fileName, QColor textColor);
     void saveImageFile(QImage image, QString fileName);
+
+    bool getNoBackground();
+    void setNoBackground(bool newValue);
+    Q_SIGNAL void noBackgroundChanged();
+
+    QString getBackgroundColor();
+    void setBackgroundColor(QString newValue);
+    Q_SIGNAL void backgroundColorChanged();
+
 signals:
     void appNameChanged();
 public slots:

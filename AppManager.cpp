@@ -173,3 +173,28 @@ void AppManager::saveImageFile(QImage image, QString fileName)
 {
     image.save(fileName, "PNG");
 }
+bool AppManager::getNoBackground()
+{
+    return m_NoBackground;
+}
+void AppManager::setNoBackground(bool newValue)
+{
+    if (m_NoBackground != newValue)
+    {
+        m_NoBackground = newValue;
+        Q_EMIT noBackgroundChanged();
+    }
+}
+
+QString AppManager::getBackgroundColor()
+{
+    return m_BackgroundColor;
+}
+void AppManager::setBackgroundColor(QString newValue)
+{
+    if (m_BackgroundColor != newValue)
+    {
+        m_BackgroundColor = newValue;
+        Q_EMIT backgroundColorChanged();
+    }
+}

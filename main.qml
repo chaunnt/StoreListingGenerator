@@ -1,19 +1,23 @@
-import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick 2.0
+import QtQuick.Controls 2.0
 
 ApplicationWindow {
-    id: window
+    id: appWiWndow
     visible: true
     width: 640
     height: 480
     title: qsTr("Stack")
     property string patternName: "Pattern1"
+    signal generateTriggered()
+
     ListModel {
         id: imageModeList
     }
+
     Component.onCompleted: {
         updateImageModelList()
     }
+
     function updateImageModelList() {
         imageModeList.clear()
         imageModeList.append({
@@ -121,12 +125,13 @@ ApplicationWindow {
                 height: 40
                 text: qsTr("Generate")
                 onClicked: {
-                    appManager.generateAndroidStoreImages()
+                    console.log("Generate")
+                    generateTriggered()
                 }
             }
         }
         Rectangle {
-            height: window.height
+            height: appWiWndow.height
             width: 1
             color: "lightgray"
         }
@@ -146,9 +151,12 @@ ApplicationWindow {
                 Repeater {
                     id: rptImgList
                     model: imageModeList
-                    delegate: Item {
+                    delegate: Rectangle {
                         width: 300
                         height: image.height + txtName.height + 20
+                        border.width: 1
+                        border.color: "gray"
+                        color: "black"
                         Text {
                             id: txtName
                             text: qsTr(imageName)
@@ -158,10 +166,19 @@ ApplicationWindow {
                             holderSrc: imageSrc
                             holderName: imageName
                             output: outputSize
-                            width: parent.width
+                            width: parent.width - 10
                             anchors.top: txtName.bottom
                             anchors.topMargin: 5
+                            anchors.horizontalCenter: parent.horizontalCenter
                         }
+                        Connections {
+                            target: appWiWndow
+                            onGenerateTriggered: {
+                                console.log("abc")
+                                image.generateImage()
+                            }
+                        }
+
                         Rectangle {
                             width: parent.width / 2
                             height: 2
